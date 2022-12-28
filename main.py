@@ -40,9 +40,9 @@ def validate_github_req() -> bool:
 def get_tetr_io_stats(user: str = "hello") -> dict:
     return requests.get(STATS_URL.format(user=user)).json()
 
-# Method that returns a string of a specific stat
+# Method that returns a string of a specific stat in capital letter
 def get_tetr_io_single_stat(user: str, stats_key: str) -> str:
-    return get_tetr_io_stats(user).get("data").get("user").get("league").get(stats_key)
+    return get_tetr_io_stats(user).get("data").get("user").get("league").get(stats_key).upper()
 
 # Method on how the data will format inside the gist
 def get_adjusted_line(title_and_value: TITLE_AND_VALUE, max_line_length: int) -> str:
