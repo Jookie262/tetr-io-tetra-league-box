@@ -9,7 +9,7 @@ from github.InputFileContent import InputFileContent
 from github import Github
 
 # Variables
-ENV_GIST_TITLE = "🟥 Tetra League Stats 🟧"
+ENV_GIST_TITLE = "Tetra League Stats"
 ENV_GH_TOKEN = "GH_TOKEN"
 ENV_GIST_ID = "GIST_ID"
 TETR_IO_USERNAME = "TETR_IO_USERNAME"
@@ -40,6 +40,9 @@ def validate_github_req() -> bool:
 def get_tetr_io_stats(user: str = "hello") -> dict:
     return requests.get(STATS_URL.format(user=user)).json()
 
+# Method that returns a string of a specific stat
+def get_tetr_io_single_stat(user: str, stats_key: str) -> str:
+    return get_tetr_io_stats(user).get("user").get("league").get(stats_key)
 
 # Method on how the data will format inside the gist
 def get_adjusted_line(title_and_value: TITLE_AND_VALUE, max_line_length: int) -> str:
@@ -103,7 +106,8 @@ def main():
     ]
 
     content = "\n".join(lines)
-    update_gist(ENV_GIST_TITLE, content)
+    new_title = f"🟥 {ENV_GIST_TITLE} ( {get_tetr_io_single_stat(tetr_io_user_name, 'rank')} ) 🟧"
+    update_gist(new_title, content)
 
 
 if __name__ == "__main__":
