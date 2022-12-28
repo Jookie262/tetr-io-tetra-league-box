@@ -10,11 +10,11 @@ from github import Github
 
 # Variables
 ENV_GIST_TITLE = "🟥 TETRA LEAGUE STATS 🟧"
-ENV_GITHUB_TOKEN = "GITHUB_TOKEN"
+ENV_GH_TOKEN = "GH_TOKEN"
 ENV_GIST_ID = "GIST_ID"
 TETR_IO_USERNAME = "TETR_IO_USERNAME"
 REQUIRED_ENVS = [
-    ENV_GITHUB_TOKEN, 
+    ENV_GH_TOKEN, 
     ENV_GIST_ID, 
     TETR_IO_USERNAME
 ]
@@ -75,7 +75,7 @@ def get_stats_line(stats_key: str, tetr_io_stats: dict ) -> TITLE_AND_VALUE:
 
 # Method that update the gist
 def update_gist(title: str, content: str) -> bool:
-    access_token = os.environ[ENV_GITHUB_TOKEN]
+    access_token = os.environ[ENV_GH_TOKEN]
     gist_id = os.environ[ENV_GIST_ID]
     gist = Github(access_token).get_gist(gist_id)
     old_title = list(gist.files.keys())[0]
@@ -110,7 +110,7 @@ if __name__ == "__main__":
     s = time.perf_counter()
     if len(sys.argv) > 1:
         os.environ[ENV_GIST_ID] = sys.argv[2]
-        os.environ[ENV_GITHUB_TOKEN] = sys.argv[3]
+        os.environ[ENV_GH_TOKEN] = sys.argv[3]
         os.environ[TETR_IO_USERNAME] = sys.argv[4]
     main()
     elapsed = time.perf_counter() - s
