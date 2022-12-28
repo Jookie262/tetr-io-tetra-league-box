@@ -91,7 +91,7 @@ def main():
     tetr_io_stats = get_tetr_io_stats(tetr_io_user_name)
 
     rating_stat = get_stats_line("rating", "📈", "Ratings", tetr_io_stats)
-    apm_stat = get_stats_line("apm", "🕹️ ", "APM", tetr_io_stats)
+    apm_stat = get_stats_line("apm", "🕹️", "APM", tetr_io_stats)
     pps_stat = get_stats_line("pps", "🧩", "PPS", tetr_io_stats)
     vs_stat = get_stats_line("vs", "🧱", "VS", tetr_io_stats)
 
