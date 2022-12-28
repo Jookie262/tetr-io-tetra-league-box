@@ -60,7 +60,7 @@ def is_float_try(str):
 
 
 # Method that gets the stats line and store inside the TITLE AND VALUE named tuple
-def get_stats_line(stats_key: str, tetr_io_stats: dict ) -> TITLE_AND_VALUE:
+def get_stats_line(stats_key: str, emoji: str, name_format: str, tetr_io_stats: dict ) -> TITLE_AND_VALUE:
     try:
         stats = str(tetr_io_stats.get("data").get("user").get("league").get(stats_key))
         
@@ -70,7 +70,7 @@ def get_stats_line(stats_key: str, tetr_io_stats: dict ) -> TITLE_AND_VALUE:
     except Exception as e:
         stats = "N/A"
 
-    return TITLE_AND_VALUE(stats_key, stats)
+    return TITLE_AND_VALUE(emoji + " " + name_format, stats)
 
 
 # Method that update the gist
