@@ -20,4 +20,4 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           GIST_ID: ${{ secrets.GIST_ID }}
-          CHESS_COM_USERNAME: ${{ secrets.TETR_IO_USERNAME }}
+          TETR_IO_USERNAME: ${{ secrets.TETR_IO_USERNAME }}
