@@ -9,7 +9,7 @@ from github.InputFileContent import InputFileContent
 from github import Github
 
 # Variables
-ENV_GIST_TITLE = "🟥 TETRA LEAGUE STATS 🟧"
+ENV_GIST_TITLE = "🟥 Tetra League Stats 🟧"
 ENV_GH_TOKEN = "GH_TOKEN"
 ENV_GIST_ID = "GIST_ID"
 TETR_IO_USERNAME = "TETR_IO_USERNAME"
