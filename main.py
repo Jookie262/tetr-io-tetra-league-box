@@ -97,7 +97,7 @@ def main():
 
     lines = [ 
         get_adjusted_line(rating_stat, 52),
-        get_adjusted_line(apm_stat, 54),
+        get_adjusted_line(apm_stat, 53),
         get_adjusted_line(pps_stat, 52),
         get_adjusted_line(vs_stat, 52),
     ]
