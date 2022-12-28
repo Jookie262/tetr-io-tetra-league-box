@@ -47,7 +47,7 @@ def get_adjusted_line(title_and_value: TITLE_AND_VALUE, max_line_length: int) ->
         len(title_and_value.title) + len(title_and_value.value) + 2
     )
     separator = f"{WIDTH_JUSTIFICATION_SEPARATOR * separation}"
-    return title_and_value.title + separator + title_and_value.value
+    return title_and_value.title + " " + separator + " " + title_and_value.value
 
 
 # Method that checks if the string is a float
@@ -96,10 +96,10 @@ def main():
     vs_stat = get_stats_line("vs", "🧱", "VS", tetr_io_stats)
 
     lines = [ 
-        get_adjusted_line(rating_stat, 52),
-        get_adjusted_line(apm_stat, 53),
-        get_adjusted_line(pps_stat, 52),
-        get_adjusted_line(vs_stat, 52),
+        get_adjusted_line(rating_stat, 55),
+        get_adjusted_line(apm_stat, 56),
+        get_adjusted_line(pps_stat, 55),
+        get_adjusted_line(vs_stat, 55),
     ]
 
     content = "\n".join(lines)
